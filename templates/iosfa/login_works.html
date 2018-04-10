@@ -1,0 +1,36 @@
+<div  class="center-block" id="login" style="width: 40%;">
+  <form class="form-horizontal form" name="LoginForm"  method="post">
+    {% csrf_token %}
+    {% if next %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% endif %}
+
+
+    <div class="control-group">
+      <label class="control-label" for="username">Username</label>
+      <div class="controls">
+        <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+      </div>
+    </div><br>
+
+
+      <label class="control-label" for="username">Username</label>
+        <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
+
+    <label class="control-label" for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+
+
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

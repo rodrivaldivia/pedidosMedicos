@@ -1,0 +1,23 @@
+{% include 'iosfa/base.html' %}
+
+{% load static %}
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    {% if user.is_authenticated %}
+      <h2>Inicio</h2>
+      <p>Hola, {{ user.username }}</p>
+      <a href="{% url 'pedido' %}" class="btn btn-info" role="button">Realizar pedido</a> <br>
+      <a href="{% url 'paciente' %}" class="btn btn-info" role="button">Lista de pacientes</a> <br>
+      <a href="{% url 'medico' %}" class="btn btn-info" role="button">Lista de medicos</a> <br>
+    {% else %}
+    Ingresa con tu cuenta para poder ver cosas
+    {% endif %}
+  </div>
+</body>

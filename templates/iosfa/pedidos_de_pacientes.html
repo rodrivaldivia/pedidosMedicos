@@ -1,0 +1,27 @@
+{% include 'iosfa/base.html' %}
+
+{% load static %}
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/lista_pacientes.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+
+  <div class="container">
+
+  {% if lista_pacientes %}
+  <ul class="list-group">
+    {% for paciente in lista_pacientes %}
+    <li class="list-group-item"><a href="/paciente/{{ paciente.paciente }}/">{{ paciente.medicacion }}</a></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No hay pacientes.</p>
+  {% endif %}
+  <a href="{% url 'home' %}">Volver al menu principal</a> <br>
+
+  </div>
+</body>

@@ -1,0 +1,18 @@
+body {
+    background-color:#1DACE8;
+}
+a{
+    color: green;
+}
+
+.container {
+    max-width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    min-width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

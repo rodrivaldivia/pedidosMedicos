@@ -1,0 +1,47 @@
+{% include 'iosfa/base.html' %}
+
+{% load static %}
+
+{% if pedido %}
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+  <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"> </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <h2>Pedido</h2>
+    <table>
+      <b>Paciente: </b>{{ pedido.paciente }}<br>
+      DNI: {{ pedido.display_dni }}<br>
+      Numero de Afiliado : {{ pedido.nro_afiliado }}<br>
+      Provincia : {{ pedido.provincia }}<br>
+      Localidad : {{ pedido.localidad }}<br>
+      Dirección : {{ pedido.direccion }}<br>
+      Telefono : {{ pedido.display_telefono }}<br><br>
+      <b>Medicación: </b>
+      {{ pedido.medicacion }}<br>
+      Forma: {{ pedido.forma_farmaceutica }}<br>
+      Dosis: {{ pedido.dosis }}<br><br>
+
+      <b>Medico: </b> {{ pedido.medico }}<br>
+      Farmacia: {{ pedido.farmacia }}<br><br>
+      <b>Fecha:</b> {{ pedido.fecha }}<br>
+      <b>Estado: </b> {{ pedido.get_estado_display }}<br>
+
+    </table>
+    {% else %}
+    <p>No existe el pedido.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'home' %}">Volver al menu principal</a> <br>
+  </div>
+
+</body>

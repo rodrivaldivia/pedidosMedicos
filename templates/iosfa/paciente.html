@@ -1,0 +1,59 @@
+{% include 'iosfa/base.html' %}
+
+{% load static %}
+
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    {% if lista_pacientes %}
+    <h2>Listado de pacientes</h2>
+
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
+    <br>
+
+    <table class="table table-hover" >
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>DNI</th>
+        <th>Afiliado</th>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+        {% for paciente in lista_pacientes %}
+        <tr>
+          <td><a href="/paciente/{{ paciente.id }}/">{{ paciente.id }}</a></td>
+          <td>{{ paciente.display_dni }}</td>
+          <td>{{ paciente.display_afiliado }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No hay pacientes.</p>
+    {% endif %}
+    <a href="{% url 'home' %}">Volver al menu principal</a> <br>
+
+  </div>
+
+  <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>

@@ -1,0 +1,14 @@
+{% include 'iosfa/base.html' %}
+
+{% block content %}
+<body>
+<div class="container">
+
+  {% block title %}Hasta luego!{% endblock %}
+
+  <h2>Desconectado</h2>
+  <p>Se cerró la sesión correctamente.</p>
+  <p><a href="{% url 'login' %}">Ingresar</a> de nuevo.</p>
+</div>
+</body>
+{% endblock %}

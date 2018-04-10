@@ -1,0 +1,28 @@
+{% load static %}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"> </script>
+
+</head>
+
+{% if lista_pedidos %}
+<h2>Datos</h2>
+
+<div class="well">
+        Medico: {{ pedido.medico }}<br><br>
+</div>
+
+
+
+{% else %}
+No hay estadisticas.
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
